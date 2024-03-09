@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span.selected {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        1'den 99'a kadar olan sayilari for dongusu ile yan yana <button onclick="sirala()"
+            id="siralaBtn">Sirala</button>
+    </div>
+    <br>
+    <div>
+        <button onclick="rastgeleSayiSec()">Rastgele Sayi Sec</button>
+    </div>
+    <br>
+    <br>
+    <div id="sonuc">
+
+    </div>
+
+    <script>
+        let siralaBtn = document.getElementById('siralaBtn')
+
+        function sirala() {
+
+            for (let index = 1; index < 100; index++) {
+                if (index % 10 == 0) {
+                    document.getElementById('sonuc').innerHTML += '<br> <br>'
+                }
+                document.getElementById('sonuc').innerHTML += ` <span id="${index}">${index}</span>`
+                siralaBtn.disabled = true
+            }
+        }
+
+        function rastgeleSayiSec() {
+            const random = Math.floor(Math.random() * 100)
+            document.getElementById(`${random}`).classList.add('selected')
+        }
+    </script>
+</body>
+
+</html>
